@@ -22,8 +22,20 @@ class orderDB
         }
         return $orders;
     }
-    public function showOrderDetail(){
-        return "abc";
+
+    public function orderDetail($orderNumber)
+    {
+        $sql = "SELECT customerName, contactFirstName as firstName,contactLastName as lastName,phone 
+                FROM customers
+                INNER JOIN orders
+                ON customers.customerNumber = orders.customerNumber
+                WHERE orders.orderNumber = :orderNumber";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":orderNumber", $orderNumber);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $order = new OrderDetail($result['customerName'], $result['firstName'], $result['lastName'], $result['phone']);
+        return $order;
     }
 
 

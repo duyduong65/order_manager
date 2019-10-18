@@ -20,8 +20,8 @@ class OrderManager
         include "view/orders/list.php";
 
     }
-    public function showOrderDetail(){
-
+    public function showOrderDetail($orderNumber){
+        $order = $this->orderDB->orderDetail($orderNumber);
         include "view/orders/orderDetail.php";
     }
 

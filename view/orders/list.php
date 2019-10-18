@@ -20,7 +20,7 @@
              foreach ($orders as $key => $order): ?>
             <tr>
                 <td><?php echo ++$key ?></td>
-                <td><a href="index.php?page=orderDetail"><?php echo $order->getOrderNumber() ?></a></td>
+                <td><a href="index.php?page=orderDetail&id=<?php echo $order->getOrderNumber() ?>"><?php echo $order->getOrderNumber() ?></a></td>
                 <td><?php echo $order->getOrderDate() ?></td>
                 <td><?php echo $order->getStatus()?></td>
             </tr>

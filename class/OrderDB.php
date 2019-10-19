@@ -23,9 +23,10 @@ class orderDB
         return $orders;
     }
 
-    public function orderDetail($orderNumber)
+    public function customerInformation()
     {
-        $sql = "SELECT customerName, contactFirstName as firstName,contactLastName as lastName,phone 
+        $orderNumber=$_GET['id'];
+        $sql = "SELECT customerName, contactFirstName as firstName,contactLastName as lastName,phone ,status
                 FROM customers
                 INNER JOIN orders
                 ON customers.customerNumber = orders.customerNumber
@@ -34,8 +35,11 @@ class orderDB
         $stmt->bindParam(":orderNumber", $orderNumber);
         $stmt->execute();
         $result = $stmt->fetch();
-        $order = new OrderDetail($result['customerName'], $result['firstName'], $result['lastName'], $result['phone']);
+        $order = new OrderDetail($result['customerName'], $result['firstName'], $result['lastName'], $result['phone'],$result['status']);
         return $order;
+    }
+    public function orderDetail(){
+
     }
 
 

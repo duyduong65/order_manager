@@ -18,10 +18,10 @@ class OrderManager
     {
         $orders = $this->orderDB->getAll();
         include "view/orders/list.php";
-
     }
-    public function showOrderDetail($orderNumber){
-        $order = $this->orderDB->orderDetail($orderNumber);
+    public function showOrderDetail(){
+        $customer = $this->orderDB->customerInformation();
+        $orders = $this->orderDB->orderDetail();
         include "view/orders/orderDetail.php";
     }
 

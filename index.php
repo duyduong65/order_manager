@@ -19,11 +19,11 @@ include_once "class/OrderManager.php";
 <?php
 $manager = new OrderManager();
 $page = (isset($_GET['page'])) ? $_GET['page'] : NULL;
-$orderNumber=$_GET['id'];
 
 switch ($page) {
     case "orderDetail":
-        $manager->showOrderDetail($orderNumber);
+        $manager->showOrderDetail();
+
         break;
     case "add":
         $manager->add();

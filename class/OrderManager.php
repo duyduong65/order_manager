@@ -21,7 +21,7 @@ class OrderManager
     }
     public function showOrderDetail(){
         $customer = $this->orderDB->customerInformation();
-        $orders = $this->orderDB->orderDetail();
+        $products = $this->orderDB->orderDetail();
         include "view/orders/orderDetail.php";
     }
 

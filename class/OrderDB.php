@@ -35,11 +35,29 @@ class orderDB
         $stmt->bindParam(":orderNumber", $orderNumber);
         $stmt->execute();
         $result = $stmt->fetch();
-        $order = new OrderDetail($result['customerName'], $result['firstName'], $result['lastName'], $result['phone'],$result['status']);
-        return $order;
+        $customer = new customerInformation($result['customerName'], $result['firstName'], $result['lastName'], $result['phone'],$result['status']);
+        return $customer;
     }
     public function orderDetail(){
-
+        $orderNumber=$_GET['id'];
+        $sql = "SELECT p.productName,p.productLine,od.quantityOrdered,od.priceEach FROM customers c
+                INNER JOIN orders o
+                ON c.customerNumber = o.customerNumber
+                INNER JOIN orderdetails od
+                ON o.orderNumber = od.orderNumber
+                INNER JOIN products p
+                ON od.productCode = p.productCode
+                WHERE o.orderNumber =:orderNumber ";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(":orderNumber",$orderNumber);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        $products = [];
+        foreach ($result as $value){
+        $product = new Product($value['productName'],$value['productLine'],$value['quantityOrdered'],$value['priceEach']);
+            array_push($products,$product);
+        }
+        return $products;
     }
 
 

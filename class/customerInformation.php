@@ -1,7 +1,7 @@
 <?php
 
 
-class OrderDetail
+class customerInformation
 {
     public $customerName;
     public $firstName;

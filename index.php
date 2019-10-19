@@ -1,5 +1,6 @@
 <?php
-include_once "class/OrderDetail.php";
+include_once "class/Product.php";
+include_once "class/customerInformation.php";
 include_once "class/Order.php";
 include_once "class/DBConnect.php";
 include_once "class/OrderDB.php";

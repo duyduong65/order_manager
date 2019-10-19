@@ -16,16 +16,29 @@
 <h1>Trạng thái:</h1>
 <table>
     <form action="">
-        <select name="status">
-            <option value="Shipped" <?php if ($customer->status == 'Shipped') echo 'selected'; ?> >Shipped</option>
-            <option value="Cancelled" <?php if ($customer->status == 'Cancelled') echo 'selected'; ?> >Cancelled
-            </option>
-            <option value="On Hold" <?php if ($customer->status == 'On Hold') echo 'selected'; ?> >On Hold</option>
-            <option value="Resolved" <?php if ($customer->status == 'Resolved') echo 'selected'; ?> >Resolved</option>
-            <option value="Disputed" <?php if ($customer->status == 'Disputed') echo 'selected'; ?> >Disputed</option>
-            <option value="In Process" <?php if ($customer->status == 'In Process') echo 'selected'; ?> >In Process
-            </option>
-        </select>
+        <tr>
+            <td>
+                <select name="status">
+                    <option value="Shipped" <?php if ($customer->status == 'Shipped') echo 'selected'; ?> >Shipped
+                    </option>
+                    <option value="Cancelled" <?php if ($customer->status == 'Cancelled') echo 'selected'; ?> >Cancelled
+                    </option>
+                    <option value="On Hold" <?php if ($customer->status == 'On Hold') echo 'selected'; ?> >On Hold
+                    </option>
+                    <option value="Resolved" <?php if ($customer->status == 'Resolved') echo 'selected'; ?> >Resolved
+                    </option>
+                    <option value="Disputed" <?php if ($customer->status == 'Disputed') echo 'selected'; ?> >Disputed
+                    </option>
+                    <option value="In Process" <?php if ($customer->status == 'In Process') echo 'selected'; ?> >In
+                        Process
+                    </option>
+                </select>
+            </td>
+            <td>
+                <input type="submit" value="Update">
+            </td>
+        </tr>
+
     </form>
 </table>
 <table border="1">
@@ -39,10 +52,10 @@
     <?php foreach ($products as $key => $product): ?>
         <tr>
             <td><?php echo ++$key ?></td>
-            <td><?php echo $product->getProductName()?></td>
-            <td><?php echo $product->getProductLine()?></td>
-            <td><?php echo $product-> getQuantityOrdered() ?></td>
-            <td><?php echo $product->getPriceEach()  ?></td>
+            <td><?php echo $product->getProductName() ?></td>
+            <td><?php echo $product->getProductLine() ?></td>
+            <td><?php echo $product->getQuantityOrdered() ?></td>
+            <td><?php echo $product->getPriceEach() ?></td>
         </tr>
     <?php endforeach; ?>
 </table>

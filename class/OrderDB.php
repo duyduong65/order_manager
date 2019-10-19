@@ -40,7 +40,7 @@ class orderDB
     }
     public function orderDetail(){
         $orderNumber=$_GET['id'];
-        $sql = "SELECT p.productName,p.productLine,od.quantityOrdered,od.priceEach FROM customers c
+        $sql = "SELECT o.orderNumber, p.productName,p.productLine,od.quantityOrdered,od.priceEach FROM customers c
                 INNER JOIN orders o
                 ON c.customerNumber = o.customerNumber
                 INNER JOIN orderdetails od
@@ -54,12 +54,20 @@ class orderDB
         $result = $stmt->fetchAll();
         $products = [];
         foreach ($result as $value){
-        $product = new Product($value['productName'],$value['productLine'],$value['quantityOrdered'],$value['priceEach']);
+        $product = new Product($value['productName'],$value['productLine'],$value['quantityOrdered'],$value['priceEach'],$value['orderNumber']);
             array_push($products,$product);
         }
         return $products;
     }
-
+    public function updateStatus(){
+        $status = $_GET['status'];
+        $orderNumber=$_GET['id'];
+        $sql = "UPDATE orders SET status=:status WHERE orderNumber=:orderNumber";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':status',$status);
+        $stmt->bindParam(':orderNumber',$orderNumber);
+        $stmt->execute();
+    }
 
 }
 

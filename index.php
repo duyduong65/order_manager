@@ -26,8 +26,8 @@ switch ($page) {
         $manager->showOrderDetail();
 
         break;
-    case "add":
-        $manager->add();
+    case "update":
+        $manager->updateStatus();
         break;
     default:
         $manager->getAll();

@@ -7,13 +7,25 @@ class Product
     protected $productLine;
     protected $quantityOrdered;
     protected $priceEach;
+    protected $orderNumber;
 
-    public function __construct($productName, $productLine, $quantityOrdered, $priceEach)
+    public function __construct($productName, $productLine, $quantityOrdered, $priceEach,$orderNumber)
     {
         $this->productName = $productName;
         $this->productLine = $productLine;
         $this->quantityOrdered = $quantityOrdered;
         $this->priceEach = $priceEach;
+        $this->orderNumber=$orderNumber;
+    }
+
+    public function getOrderNumber()
+    {
+        return $this->orderNumber;
+    }
+
+    public function setOrderNumber($orderNumber)
+    {
+        $this->orderNumber = $orderNumber;
     }
 
     public function getPriceEach()

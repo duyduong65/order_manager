@@ -15,28 +15,35 @@
 </table>
 <h1>Trạng thái:</h1>
 <table>
-    <form action="">
+    <form action="CRUD/updateStatus.php" method="get">
         <tr>
             <td>
                 <select name="status">
-                    <option value="Shipped" <?php if ($customer->status == 'Shipped') echo 'selected'; ?> >Shipped
+                    <option value="" selected>Select Status</option>
+                    <option value="Shipped" <?php if ($customer->status == 'Shipped') echo 'selected'; ?> >
+                        Shipped
                     </option>
-                    <option value="Cancelled" <?php if ($customer->status == 'Cancelled') echo 'selected'; ?> >Cancelled
+                    <option value="Cancelled" <?php if ($customer->status == 'Cancelled') echo 'selected'; ?> >
+                        Cancelled
                     </option>
-                    <option value="On Hold" <?php if ($customer->status == 'On Hold') echo 'selected'; ?> >On Hold
+                    <option value="On Hold" <?php if ($customer->status == 'On Hold') echo 'selected'; ?> >
+                        On Hold
                     </option>
-                    <option value="Resolved" <?php if ($customer->status == 'Resolved') echo 'selected'; ?> >Resolved
+                    <option value="Resolved" <?php if ($customer->status == 'Resolved') echo 'selected'; ?> >
+                        Resolved
                     </option>
-                    <option value="Disputed" <?php if ($customer->status == 'Disputed') echo 'selected'; ?> >Disputed
+                    <option value="Disputed" <?php if ($customer->status == 'Disputed') echo 'selected'; ?> >
+                        Disputed
                     </option>
-                    <option value="In Process" <?php if ($customer->status == 'In Process') echo 'selected'; ?> >In
-                        Process
+                    <option value="In Process" <?php if ($customer->status == 'In Process') echo 'selected'; ?> >
+                        In Process
                     </option>
                 </select>
             </td>
             <td>
                 <input type="submit" value="Update">
             </td>
+            <td style="display: none"><input type="text" name="id" value="<?php echo $customer->orderNumber?>"></td>
         </tr>
 
     </form>

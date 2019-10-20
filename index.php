@@ -24,10 +24,8 @@ $page = (isset($_GET['page'])) ? $_GET['page'] : NULL;
 switch ($page) {
     case "orderDetail":
         $manager->showOrderDetail();
-
         break;
-    case "update":
-        $manager->updateStatus();
+    case "add":
         break;
     default:
         $manager->getAll();

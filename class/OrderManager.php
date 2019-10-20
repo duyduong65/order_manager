@@ -24,7 +24,7 @@ class OrderManager
         $products = $this->orderDB->orderDetail();
         include "view/orders/orderDetail.php";
     }
-    public function updateStatus(){
-        $this->orderDB->updateStatus();
+    public function updateStatus($status,$orderNumber){
+        $this->orderDB->updateStatus($status,$orderNumber);
     }
 }

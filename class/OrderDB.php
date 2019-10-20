@@ -26,7 +26,7 @@ class orderDB
     public function customerInformation()
     {
         $orderNumber=$_GET['id'];
-        $sql = "SELECT customerName, contactFirstName as firstName,contactLastName as lastName,phone ,status
+        $sql = "SELECT orders.orderNumber, customerName, contactFirstName as firstName,contactLastName as lastName,phone ,status
                 FROM customers
                 INNER JOIN orders
                 ON customers.customerNumber = orders.customerNumber
@@ -35,12 +35,12 @@ class orderDB
         $stmt->bindParam(":orderNumber", $orderNumber);
         $stmt->execute();
         $result = $stmt->fetch();
-        $customer = new customerInformation($result['customerName'], $result['firstName'], $result['lastName'], $result['phone'],$result['status']);
+        $customer = new customerInformation($result['customerName'], $result['firstName'], $result['lastName'], $result['phone'],$result['status'],$result['orderNumber']);
         return $customer;
     }
     public function orderDetail(){
         $orderNumber=$_GET['id'];
-        $sql = "SELECT o.orderNumber, p.productName,p.productLine,od.quantityOrdered,od.priceEach FROM customers c
+        $sql = "SELECT  p.productName,p.productLine,od.quantityOrdered,od.priceEach FROM customers c
                 INNER JOIN orders o
                 ON c.customerNumber = o.customerNumber
                 INNER JOIN orderdetails od
@@ -54,14 +54,12 @@ class orderDB
         $result = $stmt->fetchAll();
         $products = [];
         foreach ($result as $value){
-        $product = new Product($value['productName'],$value['productLine'],$value['quantityOrdered'],$value['priceEach'],$value['orderNumber']);
+        $product = new Product($value['productName'],$value['productLine'],$value['quantityOrdered'],$value['priceEach']);
             array_push($products,$product);
         }
         return $products;
     }
-    public function updateStatus(){
-        $status = $_GET['status'];
-        $orderNumber=$_GET['id'];
+    public function updateStatus($status,$orderNumber){
         $sql = "UPDATE orders SET status=:status WHERE orderNumber=:orderNumber";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':status',$status);

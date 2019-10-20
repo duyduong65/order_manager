@@ -39,6 +39,7 @@ class orderDB
         return $customer;
     }
     public function orderDetail(){
+
         $orderNumber=$_GET['id'];
         $sql = "SELECT  p.productName,p.productLine,od.quantityOrdered,od.priceEach FROM customers c
                 INNER JOIN orders o

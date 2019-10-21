@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="931db6f7-818e-49b1-b096-502fb7b126f5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class/OrderDetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/OrderDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/OrderDB.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/class/OrderManager.php" beforeDir="false" afterPath="$PROJECT_DIR$/class/OrderManager.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/orders/list.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/orders/list.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/view/orders/orderDetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/orders/orderDetail.php" afterDir="false" />
-    </list>
+    <list default="true" id="931db6f7-818e-49b1-b096-502fb7b126f5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +48,7 @@
       <updated>1571381771897</updated>
       <workItem from="1571381773150" duration="1809000" />
       <workItem from="1571392541906" duration="3992000" />
-      <workItem from="1571396812885" duration="519000" />
+      <workItem from="1571396812885" duration="776000" />
     </task>
     <servers />
   </component>

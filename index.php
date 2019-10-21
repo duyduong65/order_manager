@@ -1,5 +1,6 @@
 <?php
-include_once "class/OrderDetail.php";
+include_once "class/Product.php";
+include_once "class/customerInformation.php";
 include_once "class/Order.php";
 include_once "class/DBConnect.php";
 include_once "class/OrderDB.php";
@@ -19,14 +20,12 @@ include_once "class/OrderManager.php";
 <?php
 $manager = new OrderManager();
 $page = (isset($_GET['page'])) ? $_GET['page'] : NULL;
-$orderNumber=$_GET['id'];
 
 switch ($page) {
     case "orderDetail":
-        $manager->showOrderDetail($orderNumber);
+        $manager->showOrderDetail();
         break;
     case "add":
-        $manager->add();
         break;
     default:
         $manager->getAll();

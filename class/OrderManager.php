@@ -18,12 +18,13 @@ class OrderManager
     {
         $orders = $this->orderDB->getAll();
         include "view/orders/list.php";
-
     }
-    public function showOrderDetail($orderNumber){
-        $order = $this->orderDB->orderDetail($orderNumber);
+    public function showOrderDetail(){
+        $customer = $this->orderDB->customerInformation();
+        $products = $this->orderDB->orderDetail();
         include "view/orders/orderDetail.php";
     }
-
-
+    public function updateStatus($status,$orderNumber){
+        $this->orderDB->updateStatus($status,$orderNumber);
+    }
 }

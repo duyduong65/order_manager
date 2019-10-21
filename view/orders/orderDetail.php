@@ -20,22 +20,22 @@
             <td>
                 <select name="status">
                     <option value="" selected>Select Status</option>
-                    <option value="Shipped" <?php if ($customer->status == 'Shipped') echo 'selected'; ?> >
+                    <option value="Shipped" <?php if ($customer->status == CONST_orders::SHIPPED) echo 'selected'; ?> >
                         Shipped
                     </option>
-                    <option value="Cancelled" <?php if ($customer->status == 'Cancelled') echo 'selected'; ?> >
+                    <option value="Cancelled" <?php if ($customer->status == CONST_orders::CANCELLED) echo 'selected'; ?> >
                         Cancelled
                     </option>
-                    <option value="On Hold" <?php if ($customer->status == 'On Hold') echo 'selected'; ?> >
+                    <option value="On Hold" <?php if ($customer->status == CONST_orders::ONHOLD) echo 'selected'; ?> >
                         On Hold
                     </option>
-                    <option value="Resolved" <?php if ($customer->status == 'Resolved') echo 'selected'; ?> >
+                    <option value="Resolved" <?php if ($customer->status == CONST_orders::RESOLVED) echo 'selected'; ?> >
                         Resolved
                     </option>
-                    <option value="Disputed" <?php if ($customer->status == 'Disputed') echo 'selected'; ?> >
+                    <option value="Disputed" <?php if ($customer->status == CONST_orders::DISPUTED) echo 'selected'; ?> >
                         Disputed
                     </option>
-                    <option value="In Process" <?php if ($customer->status == 'In Process') echo 'selected'; ?> >
+                    <option value="In Process" <?php if ($customer->status == CONST_orders::INPROCESS) echo 'selected'; ?> >
                         In Process
                     </option>
                 </select>
@@ -43,7 +43,7 @@
             <td>
                 <input type="submit" value="Update">
             </td>
-            <td style="display: none"><input type="text" name="id" value="<?php echo $customer->orderNumber?>"></td>
+            <td style="display: none"><input type="text" name="id" value="<?php echo $customer->orderNumber ?>"></td>
         </tr>
 
     </form>

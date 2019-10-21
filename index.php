@@ -1,4 +1,5 @@
 <?php
+include_once "class/CONST_orders.php";
 include_once "class/Product.php";
 include_once "class/customerInformation.php";
 include_once "class/Order.php";
@@ -22,10 +23,10 @@ $manager = new OrderManager();
 $page = (isset($_GET['page'])) ? $_GET['page'] : NULL;
 
 switch ($page) {
-    case "orderDetail":
+    case CONST_orders::ORDERDETAIL :
         $manager->showOrderDetail();
         break;
-    case "add":
+    case CONST_orders::ADD :
         break;
     default:
         $manager->getAll();
